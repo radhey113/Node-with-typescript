@@ -18,18 +18,19 @@ class UserController {
         User.find({}, {}, { lean: true })
             .then( Data => {
 
-                const statusCode = res.statusCode;
+                const statusCode: any = res.statusCode;
                 res.json({
                     statusCode,
                     Data
                 });
 
             }).catch(Error => {
-            const statusCode = res.statusCode;
+
+            const statusCode: any = res.statusCode;
             res.json({
                 statusCode,
                 Error
-            })
+            });
         });
     }
 
@@ -41,24 +42,25 @@ class UserController {
      */
     public GetUser(req: Request, res: Response): void {
 
-        const slug: String = req.params.slug;
+        const slug: string = req.params.slug;
 
         User.findOne({ slug }, { }, { lean: true })
             .then( Data => {
 
-                let status = res.statusCode;
+                let statusCode: any = res.statusCode;
                 res.json({
-                    status,
+                    statusCode,
                     Data
-                })
+                });
 
             }).catch(Error => {
-            let status = res.statusCode;
+
+            let statusCode: any = res.statusCode;
             res.json({
-                status,
+                statusCode,
                 Error
-            })
-        })
+            });
+        });
 
     }
 
@@ -73,19 +75,20 @@ class UserController {
         new User(req.body).save()
             .then( Data => {
 
-                let status = res.statusCode;
+                let statusCode: any = res.statusCode;
                 res.json({
-                    status,
+                    statusCode,
                     Data
-                })
+                });
 
             }).catch(Error => {
-            let status = res.statusCode;
+
+            let statusCode: any = res.statusCode;
             res.json({
-                status,
+                statusCode,
                 Error
-            })
-        })
+            });
+        });
     }
 
     /**
@@ -105,20 +108,19 @@ class UserController {
                 if(!Data)
                     throw `Data not found`;
 
-                let status = res.statusCode;
+                let statusCode: any = res.statusCode;
                 res.json({
-                    status,
+                    statusCode,
                     Data
-                })
+                });
             }).catch(Error => {
 
-            let status = res.statusCode;
-
+            let statusCode: any = res.statusCode;
             res.json({
-                status,
+                statusCode,
                 Error
-            })
-        })
+            });
+        });
     }
 
     /**
@@ -134,21 +136,21 @@ class UserController {
         User.remove({ slug })
             .then(Data => {
 
-                let status = res.statusCode;
+                let statusCode: any = res.statusCode;
                 res.json({
-                    status,
+                    statusCode,
                     Data
-                })
+                });
             }).catch(Error => {
 
-            let status = res.statusCode;
+            let statusCode: any = res.statusCode;
             res.json({
-                status,
+                statusCode,
                 Error
-            })
-        })
+            });
+        });
     }
 
-};
+}
 
 export default new UserController();

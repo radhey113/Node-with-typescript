@@ -27,7 +27,7 @@ class Server {
     public config(){
 
         /** Mongoose configuration to connect mongodb **/
-        const MONGO_URI = 'mongodb://127.0.0.1/demo_dev_tsc';
+        const MONGO_URI: string = 'mongodb://127.0.0.1/demo_dev_tsc';
         mongoose.connect(MONGO_URI || process.env.MONGO_URI);
 
         /** Configure middleware **/
