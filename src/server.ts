@@ -1,4 +1,5 @@
 
+/** Require module for server **/
 import * as express from 'express';
 import * as mongoose from 'mongoose';
 
@@ -10,6 +11,8 @@ import * as logger from 'morgan';
 
 import * as cors from 'cors';
 import * as constants from './util/Constants';
+
+import * as config from './config';
 
 /** Routes **/
 import Router from './routes/Routes';
@@ -27,8 +30,8 @@ class Server {
     public config(){
 
         /** Mongoose configuration to connect mongodb **/
-        const MONGO_URI: string = 'mongodb://127.0.0.1/demo_dev_tsc';
-        mongoose.connect(MONGO_URI || process.env.MONGO_URI);
+        const MONGO_URI: string = config["default"].Db_Config["default"].MONGO_URI;
+        mongoose.connect(MONGO_URI);
 
         /** Configure middleware **/
         this.app.use(bodyParser.urlencoded({ extended: true }));
