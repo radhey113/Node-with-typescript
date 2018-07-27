@@ -5,8 +5,14 @@ import { Schema, model } from 'mongoose';
 
 let User: Schema = new Schema({
 
-    CreatedAt: Date,
-    Updated: Date,
+    CreatedAt: {
+        type: Date,
+        default: Date.now
+    },
+    Updated: {
+        type: Date,
+        default: Date.now
+    },
 
     title: {
         type: String,
