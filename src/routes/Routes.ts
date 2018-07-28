@@ -1,4 +1,7 @@
 
+/**
+ * Dependencies here
+ */
 import { Router } from 'express';
 import UserController from '../controller/UserController';
 
@@ -11,6 +14,8 @@ class Routers {
     }
 
     routes(){
+
+        /** Routes here**/
         this.router.get('/', UserController.GetUsers);
         this.router.get('/:slug', UserController.GetUser);
         this.router.post('/', UserController.SaveUser);

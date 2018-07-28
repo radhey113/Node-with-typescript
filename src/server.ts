@@ -1,18 +1,16 @@
 
 /** Require module for server **/
 import * as express from 'express';
-import * as mongoose from 'mongoose';
-
 import * as bodyParser from 'body-parser';
 import * as compression from 'compression';
 
 import * as helmet from 'helmet';
 import * as logger from 'morgan';
-
 import * as cors from 'cors';
-import * as constants from './util/Constants';
 
+import * as constants from './util/Constants';
 import * as config from './config';
+import * as dbConnection from './dbConnection/DbConnection';
 
 /** Routes **/
 import Router from './routes/Routes';
@@ -31,7 +29,7 @@ class Server {
 
         /** Mongoose configuration to connect mongodb **/
         const MONGO_URI: string = config["default"].Db_Config["default"].MONGO_URI;
-        mongoose.connect(MONGO_URI);
+        dbConnection.default.MONGO_CONNECTION(MONGO_URI);
 
         /** Configure middleware **/
         this.app.use(bodyParser.urlencoded({ extended: true }));
