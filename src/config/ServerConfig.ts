@@ -3,7 +3,7 @@
  */
 class SERVER_CONFIG {
 
-    public PORT: any = '4000';
+    public PORT: any = process.env.SERVER_PORT || '4000';
     public HOST: string = '0.0.0.0';
 
     constructor() {
