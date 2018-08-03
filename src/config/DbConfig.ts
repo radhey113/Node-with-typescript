@@ -19,8 +19,8 @@ class DbConfig {
 
         if(ENV === "production"){
 
-            this.MONGO_URI =   process.env.MONGO_URI || "mongodb://127.0.0.1:27017/demo_prod";
-            this.DATABASE  =   "demo_prod";
+            this.MONGO_URI =   process.env.MONGO_URI || "mongodb://127.0.0.1:27017/demo";
+            this.DATABASE  =   "demo";
             this.USER      =   "";
 
             this.PASSWORD  =   "";
